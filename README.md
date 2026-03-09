@@ -114,13 +114,13 @@ Eine kompakte Lovelace-Karte, die die **Differenz** zwischen dem aktuellen Wert 
 ## Installation
 
 ### HACS (empfohlen)
-1. Repository (https://github.com/Pablo1732/ha-period-difference) zu HACS hinzufügen [(Anleitung)](https://hacs.xyz/docs/faq/custom_repositories/)
+1. Repository (https://github.com/Pablo1732/ha-period-difference-card) zu HACS hinzufügen [(Anleitung)](https://hacs.xyz/docs/faq/custom_repositories/)
 2. Kategorie wählen: **Dashboard**
 3. Period Difference Card über HACS installieren
 4. Home Assistant neu starten
 
 ### Manuell
-1. Lade `ha-period-difference-card.js` aus dem [neuesten Release](https://github.com/Pablo1732/ha-period-difference/releases) herunter
+1. Lade `ha-period-difference-card.js` aus dem [neuesten Release](https://github.com/Pablo1732/ha-period-difference-card/releases) herunter
 2. Kopiere die Datei nach `/config/www/ha-period-difference-card.js`
 3. Füge die Ressource hinzu:
    - **Einstellungen** → **Dashboards** → **Ressourcen** → **Ressource hinzufügen**

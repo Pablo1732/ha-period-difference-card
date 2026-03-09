@@ -1,3 +1,5 @@
+const VERSION = "0.1.0";
+
 const LitElement = Object.getPrototypeOf(
   customElements.get('ha-panel-lovelace')
 );
