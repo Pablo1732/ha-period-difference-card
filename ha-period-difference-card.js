@@ -205,6 +205,11 @@ class PeriodDifferenceCard extends LitElement {
         color: var(--warning-color, #ff9800);
         margin-top: 4px;
         text-align: center;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 20px), transparent 100%);
+        mask-image: linear-gradient(to right, #000 calc(100% - 20px), transparent 100%);
       }
 
       /* ── Responsive: Extra-klein (<120px) ─────────────────────── */
@@ -214,7 +219,7 @@ class PeriodDifferenceCard extends LitElement {
         }
         .header-row {
           flex-direction: column;
-          align-items: stretch;
+          align-items: flex-start;
           margin-bottom: 2px;
           gap: 2px;
         }
@@ -225,7 +230,7 @@ class PeriodDifferenceCard extends LitElement {
           mask-image: linear-gradient(to right, #000 calc(100% - 16px), transparent 100%);
         }
         .dropdown-wrapper {
-          align-self: center;
+          align-self: flex-start;
         }
         .dropdown-trigger {
           padding: 3px 8px;
@@ -257,8 +262,7 @@ class PeriodDifferenceCard extends LitElement {
           font-size: 0.75rem;
         }
         .warning {
-          font-size: 0.68rem;
-          margin-top: 2px;
+          display: none;
         }
       }
 
@@ -269,7 +273,7 @@ class PeriodDifferenceCard extends LitElement {
         }
         .header-row {
           flex-direction: column;
-          align-items: stretch;
+          align-items: flex-start;
           margin-bottom: 3px;
           gap: 3px;
         }
@@ -280,7 +284,7 @@ class PeriodDifferenceCard extends LitElement {
           mask-image: linear-gradient(to right, #000 calc(100% - 18px), transparent 100%);
         }
         .dropdown-wrapper {
-          align-self: center;
+          align-self: flex-start;
         }
         .dropdown-trigger {
           padding: 4px 10px;
@@ -308,8 +312,9 @@ class PeriodDifferenceCard extends LitElement {
           font-size: 0.88rem;
         }
         .warning {
-          font-size: 0.8rem;
-          margin-top: 3px;
+          font-size: 0.7rem;
+          margin-top: 2px;
+          line-height: 1.2;
         }
       }
 
