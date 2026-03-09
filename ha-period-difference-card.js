@@ -86,13 +86,13 @@ class PeriodDifferenceCard extends LitElement {
         font-weight: 500;
         color: var(--primary-text-color);
         letter-spacing: -0.01em;
-        min-width: 40px;
+        min-width: 50px;
         flex: 1 1 auto;
         overflow: hidden;
         white-space: nowrap;
         position: relative;
-        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent 100%);
-        mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, #000 80%, transparent 100%);
+        mask-image: linear-gradient(to right, #000 80%, transparent 100%);
       }
       .dropdown-wrapper {
         position: relative;
@@ -233,9 +233,11 @@ class PeriodDifferenceCard extends LitElement {
         }
         .card-header {
           font-size: 0.75rem;
+          flex: 0 0 auto;
           width: 100%;
-          -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 16px), transparent 100%);
-          mask-image: linear-gradient(to right, #000 calc(100% - 16px), transparent 100%);
+          max-width: 100%;
+          -webkit-mask-image: linear-gradient(to right, #000 75%, transparent 100%);
+          mask-image: linear-gradient(to right, #000 75%, transparent 100%);
         }
         .dropdown-wrapper {
           align-self: flex-start;
@@ -287,9 +289,11 @@ class PeriodDifferenceCard extends LitElement {
         }
         .card-header {
           font-size: 0.88rem;
+          flex: 0 0 auto;
           width: 100%;
-          -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 18px), transparent 100%);
-          mask-image: linear-gradient(to right, #000 calc(100% - 18px), transparent 100%);
+          max-width: 100%;
+          -webkit-mask-image: linear-gradient(to right, #000 75%, transparent 100%);
+          mask-image: linear-gradient(to right, #000 75%, transparent 100%);
         }
         .dropdown-wrapper {
           align-self: flex-start;
