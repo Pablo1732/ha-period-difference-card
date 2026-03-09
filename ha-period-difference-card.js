@@ -63,8 +63,6 @@ class PeriodDifferenceCard extends LitElement {
         padding: 12px 16px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         border-radius: var(--ha-card-border-radius, 12px);
         box-shadow: var(--ha-card-box-shadow, none);
         height: 100%;
@@ -81,14 +79,15 @@ class PeriodDifferenceCard extends LitElement {
         flex-wrap: wrap;
         overflow: visible;
         min-width: 0;
+        flex-shrink: 0;
       }
       .card-header {
         font-size: 1.28rem;
         font-weight: 500;
         color: var(--primary-text-color);
         letter-spacing: -0.01em;
-        min-width: 0;
-        flex: 1 1 0;
+        min-width: 40px;
+        flex: 1 1 auto;
         overflow: hidden;
         white-space: nowrap;
         position: relative;
@@ -161,11 +160,10 @@ class PeriodDifferenceCard extends LitElement {
       }
       .value-container {
         display: flex;
-        align-items: baseline;
+        align-items: center;
         justify-content: center;
         gap: 5px;
-        margin: 2px 0;
-        flex: 1;
+        flex: 1 1 auto;
         min-height: 0;
         max-width: 100%;
         overflow: hidden;
@@ -192,10 +190,18 @@ class PeriodDifferenceCard extends LitElement {
         color: var(--error-color, #db4437);
         font-size: 1.14rem;
         text-align: center;
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .loading {
         color: var(--secondary-text-color);
         font-size: 1.14rem;
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .stale {
         opacity: 0.6;
@@ -203,11 +209,13 @@ class PeriodDifferenceCard extends LitElement {
       .warning {
         font-size: 1.08rem;
         color: var(--warning-color, #ff9800);
-        margin-top: 4px;
+        margin-top: auto;
+        padding-top: 4px;
         text-align: center;
         max-width: 100%;
         overflow: hidden;
         white-space: nowrap;
+        flex-shrink: 0;
         -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 20px), transparent 100%);
         mask-image: linear-gradient(to right, #000 calc(100% - 20px), transparent 100%);
       }
