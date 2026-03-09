@@ -1,4 +1,4 @@
-const VERSION = "0.2.0";
+const VERSION = "0.2.8";
 
 const LitElement = Object.getPrototypeOf(
   customElements.get('ha-panel-lovelace')
@@ -710,7 +710,10 @@ class PeriodDifferenceCard extends LitElement {
       return html`<ha-card><div class="error">Konfiguration fehlt.</div></ha-card>`;
     }
     const obj = this._hass.states[this._config.entity];
-    const unit = obj?.attributes?.unit_of_measurement || '';
+    const showUnit = this._config.show_unit !== false;
+    const unit = showUnit
+      ? (this._config.unit !== undefined ? this._config.unit : (obj?.attributes?.unit_of_measurement || ''))
+      : '';
     const name = this._config.name || obj?.attributes?.friendly_name || this._config.entity;
     const idx = this._selectedIndex;
     const r = this._results[idx] || { loading: true };
@@ -748,7 +751,7 @@ class PeriodDifferenceCard extends LitElement {
                   <span class="value ${r.diff > 0 ? 'positive' : r.diff < 0 ? 'negative' : 'zero'}">
                     ${r.diff > 0 ? '+' : ''}${this._fmt(r.diff)}
                   </span>
-                  <span class="unit">${unit}</span>
+                  ${unit ? html`<span class="unit">${unit}</span>` : ''}
                 </div>
                 ${r.warning ? html`<div class="warning">⚠ ${r.warning}</div>` : ''}`
         }
@@ -795,7 +798,7 @@ window.customCards.push({
 });
 
 console.info(
-  '%c HA-PERIOD-DIFFERENCE-CARD %c v0.2.0 ',
+  '%c HA-PERIOD-DIFFERENCE-CARD %c v0.2.8 ',
   'background: #4caf50; color: #fff; font-weight: bold',
   'background: #ddd; color: #333'
 );
