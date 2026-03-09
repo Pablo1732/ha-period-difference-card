@@ -212,9 +212,12 @@ class PeriodDifferenceCard extends LitElement {
         padding-top: 4px;
         text-align: center;
         max-width: 100%;
+        flex-shrink: 0;
+        word-break: break-word;
+      }
+      ha-card.fixed-height .warning {
         overflow: hidden;
         white-space: nowrap;
-        flex-shrink: 0;
         -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 20px), transparent 100%);
         mask-image: linear-gradient(to right, #000 calc(100% - 20px), transparent 100%);
       }
@@ -261,6 +264,10 @@ class PeriodDifferenceCard extends LitElement {
           font-size: 0.75rem;
         }
         .warning {
+          font-size: 0.65rem;
+          padding-top: 2px;
+        }
+        ha-card.fixed-height .warning {
           display: none;
         }
       }
@@ -709,9 +716,10 @@ class PeriodDifferenceCard extends LitElement {
     const r = this._results[idx] || { loading: true };
     const currentPeriod = this._config.periods[idx];
     const periodLabel = currentPeriod?.name || currentPeriod?.period || '';
+    const fixedHeight = this._config.grid_options?.rows ? 'fixed-height' : '';
 
     return html`
-      <ha-card>
+      <ha-card class="${fixedHeight}">
         <div class="header-row">
           <div class="card-header">${name}</div>
           <div class="dropdown-wrapper">
