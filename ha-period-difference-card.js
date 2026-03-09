@@ -76,7 +76,6 @@ class PeriodDifferenceCard extends LitElement {
         width: 100%;
         margin-bottom: 6px;
         gap: 4px;
-        flex-wrap: wrap;
         overflow: visible;
         min-width: 0;
         flex-shrink: 0;
@@ -86,13 +85,13 @@ class PeriodDifferenceCard extends LitElement {
         font-weight: 500;
         color: var(--primary-text-color);
         letter-spacing: -0.01em;
-        min-width: 50px;
+        min-width: 0;
         flex: 1 1 0;
         overflow: hidden;
         white-space: nowrap;
         position: relative;
-        -webkit-mask-image: linear-gradient(to right, #000 80%, transparent 100%);
-        mask-image: linear-gradient(to right, #000 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, #000 70%, transparent 100%);
+        mask-image: linear-gradient(to right, #000 70%, transparent 100%);
       }
       .dropdown-wrapper {
         position: relative;
@@ -226,21 +225,11 @@ class PeriodDifferenceCard extends LitElement {
           padding: 6px 8px;
         }
         .header-row {
-          flex-direction: column;
-          align-items: flex-start;
           margin-bottom: 2px;
           gap: 2px;
         }
         .card-header {
           font-size: 0.75rem;
-          flex: 0 0 auto;
-          width: 100%;
-          max-width: 100%;
-          -webkit-mask-image: linear-gradient(to right, #000 75%, transparent 100%);
-          mask-image: linear-gradient(to right, #000 75%, transparent 100%);
-        }
-        .dropdown-wrapper {
-          align-self: flex-start;
         }
         .dropdown-trigger {
           padding: 3px 8px;
@@ -282,21 +271,11 @@ class PeriodDifferenceCard extends LitElement {
           padding: 8px 10px;
         }
         .header-row {
-          flex-direction: column;
-          align-items: flex-start;
           margin-bottom: 3px;
           gap: 3px;
         }
         .card-header {
           font-size: 0.88rem;
-          flex: 0 0 auto;
-          width: 100%;
-          max-width: 100%;
-          -webkit-mask-image: linear-gradient(to right, #000 75%, transparent 100%);
-          mask-image: linear-gradient(to right, #000 75%, transparent 100%);
-        }
-        .dropdown-wrapper {
-          align-self: flex-start;
         }
         .dropdown-trigger {
           padding: 4px 10px;
