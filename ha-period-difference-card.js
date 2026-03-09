@@ -1,4 +1,4 @@
-const VERSION = "0.2.8";
+const VERSION = "0.2.9";
 
 const LitElement = Object.getPrototypeOf(
   customElements.get('ha-panel-lovelace')
@@ -710,10 +710,16 @@ class PeriodDifferenceCard extends LitElement {
       return html`<ha-card><div class="error">Konfiguration fehlt.</div></ha-card>`;
     }
     const obj = this._hass.states[this._config.entity];
-    const showUnit = this._config.show_unit !== false;
-    const unit = showUnit
-      ? (this._config.unit !== undefined ? this._config.unit : (obj?.attributes?.unit_of_measurement || ''))
-      : '';
+    const cfgShowUnit = this._config.show_unit;
+    const showUnit = cfgShowUnit !== false && cfgShowUnit !== 'false';
+    let unit = '';
+    if (showUnit) {
+      if ('unit' in this._config) {
+        unit = this._config.unit ?? '';
+      } else {
+        unit = obj?.attributes?.unit_of_measurement || '';
+      }
+    }
     const name = this._config.name || obj?.attributes?.friendly_name || this._config.entity;
     const idx = this._selectedIndex;
     const r = this._results[idx] || { loading: true };
@@ -798,7 +804,7 @@ window.customCards.push({
 });
 
 console.info(
-  '%c HA-PERIOD-DIFFERENCE-CARD %c v0.2.8 ',
+  '%c HA-PERIOD-DIFFERENCE-CARD %c v0.2.9 ',
   'background: #4caf50; color: #fff; font-weight: bold',
   'background: #ddd; color: #333'
 );

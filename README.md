@@ -11,7 +11,7 @@ A compact Lovelace card that shows the **difference** between a sensor's current
 
 ![Home Assistant](https://img.shields.io/badge/Home%20Assistant-Lovelace-blue)
 ![HACS](https://img.shields.io/badge/HACS-Custom-orange)
-![Version](https://img.shields.io/badge/version-0.2.8-green)
+![Version](https://img.shields.io/badge/version-0.2.9-green)
 
 ## Features
 - **Multiple time periods** – selectable via dropdown
@@ -180,7 +180,7 @@ Eine kompakte Lovelace-Karte, die die **Differenz** zwischen dem aktuellen Wert 
 
 ![Home Assistant](https://img.shields.io/badge/Home%20Assistant-Lovelace-blue)
 ![HACS](https://img.shields.io/badge/HACS-Custom-orange)
-![Version](https://img.shields.io/badge/version-0.2.8-green)
+![Version](https://img.shields.io/badge/version-0.2.9-green)
 
 ## Features
 - **Mehrere Zeiträume** – per Dropdown auswählbar
