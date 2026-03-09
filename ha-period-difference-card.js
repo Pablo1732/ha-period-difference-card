@@ -78,6 +78,9 @@ class PeriodDifferenceCard extends LitElement {
         width: 100%;
         margin-bottom: 6px;
         gap: 4px;
+        flex-wrap: wrap;
+        overflow: visible;
+        min-width: 0;
       }
       .card-header {
         font-size: 1.28rem;
@@ -85,9 +88,12 @@ class PeriodDifferenceCard extends LitElement {
         color: var(--primary-text-color);
         letter-spacing: -0.01em;
         min-width: 0;
+        flex: 1 1 0;
         overflow: hidden;
-        text-overflow: ellipsis;
         white-space: nowrap;
+        position: relative;
+        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent 100%);
+        mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent 100%);
       }
       .dropdown-wrapper {
         position: relative;
@@ -161,12 +167,18 @@ class PeriodDifferenceCard extends LitElement {
         margin: 2px 0;
         flex: 1;
         min-height: 0;
+        max-width: 100%;
+        overflow: hidden;
       }
       .value {
         font-size: 2.7rem;
         font-weight: 700;
         color: var(--primary-text-color);
         line-height: 1.1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 0;
       }
       .value.positive { color: var(--label-badge-green, #4caf50); }
       .value.negative { color: var(--label-badge-red, #f44336); }
@@ -202,14 +214,18 @@ class PeriodDifferenceCard extends LitElement {
         }
         .header-row {
           flex-direction: column;
-          align-items: center;
+          align-items: stretch;
           margin-bottom: 2px;
           gap: 2px;
         }
         .card-header {
           font-size: 0.75rem;
-          text-align: center;
           width: 100%;
+          -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 16px), transparent 100%);
+          mask-image: linear-gradient(to right, #000 calc(100% - 16px), transparent 100%);
+        }
+        .dropdown-wrapper {
+          align-self: center;
         }
         .dropdown-trigger {
           padding: 3px 8px;
@@ -253,14 +269,18 @@ class PeriodDifferenceCard extends LitElement {
         }
         .header-row {
           flex-direction: column;
-          align-items: center;
+          align-items: stretch;
           margin-bottom: 3px;
           gap: 3px;
         }
         .card-header {
           font-size: 0.88rem;
-          text-align: center;
           width: 100%;
+          -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 18px), transparent 100%);
+          mask-image: linear-gradient(to right, #000 calc(100% - 18px), transparent 100%);
+        }
+        .dropdown-wrapper {
+          align-self: center;
         }
         .dropdown-trigger {
           padding: 4px 10px;
