@@ -1,4 +1,4 @@
-const VERSION = "0.1.0";
+const VERSION = "0.2.0";
 
 const LitElement = Object.getPrototypeOf(
   customElements.get('ha-panel-lovelace')
@@ -53,6 +53,12 @@ class PeriodDifferenceCard extends LitElement {
 
   static get styles() {
     return css`
+      :host {
+        container-type: inline-size;
+        container-name: card;
+        display: block;
+        height: 100%;
+      }
       ha-card {
         padding: 12px 16px;
         display: flex;
@@ -61,6 +67,9 @@ class PeriodDifferenceCard extends LitElement {
         justify-content: center;
         border-radius: var(--ha-card-border-radius, 12px);
         box-shadow: var(--ha-card-box-shadow, none);
+        height: 100%;
+        box-sizing: border-box;
+        overflow: visible;
       }
       .header-row {
         display: flex;
@@ -68,15 +77,21 @@ class PeriodDifferenceCard extends LitElement {
         justify-content: space-between;
         width: 100%;
         margin-bottom: 6px;
+        gap: 4px;
       }
       .card-header {
         font-size: 1.28rem;
         font-weight: 500;
         color: var(--primary-text-color);
         letter-spacing: -0.01em;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .dropdown-wrapper {
         position: relative;
+        flex-shrink: 0;
       }
       .dropdown-trigger {
         display: flex;
@@ -141,8 +156,11 @@ class PeriodDifferenceCard extends LitElement {
       .value-container {
         display: flex;
         align-items: baseline;
+        justify-content: center;
         gap: 5px;
         margin: 2px 0;
+        flex: 1;
+        min-height: 0;
       }
       .value {
         font-size: 2.7rem;
@@ -175,6 +193,220 @@ class PeriodDifferenceCard extends LitElement {
         color: var(--warning-color, #ff9800);
         margin-top: 4px;
         text-align: center;
+      }
+
+      /* ── Responsive: Extra-klein (<120px) ─────────────────────── */
+      @container card (max-width: 119px) {
+        ha-card {
+          padding: 6px 8px;
+        }
+        .header-row {
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 2px;
+          gap: 2px;
+        }
+        .card-header {
+          font-size: 0.75rem;
+          text-align: center;
+          width: 100%;
+        }
+        .dropdown-trigger {
+          padding: 3px 8px;
+          font-size: 0.7rem;
+          border-radius: 10px;
+          gap: 3px;
+        }
+        .dropdown-arrow {
+          font-size: 0.4rem;
+        }
+        .dropdown-menu {
+          min-width: 90px;
+          border-radius: 8px;
+        }
+        .dropdown-item {
+          padding: 6px 10px;
+          font-size: 0.75rem;
+        }
+        .value {
+          font-size: 1.3rem;
+        }
+        .unit {
+          font-size: 0.75rem;
+        }
+        .value-container {
+          gap: 3px;
+        }
+        .error, .loading {
+          font-size: 0.75rem;
+        }
+        .warning {
+          font-size: 0.68rem;
+          margin-top: 2px;
+        }
+      }
+
+      /* ── Responsive: Klein (120px–179px) ──────────────────────── */
+      @container card (min-width: 120px) and (max-width: 179px) {
+        ha-card {
+          padding: 8px 10px;
+        }
+        .header-row {
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 3px;
+          gap: 3px;
+        }
+        .card-header {
+          font-size: 0.88rem;
+          text-align: center;
+          width: 100%;
+        }
+        .dropdown-trigger {
+          padding: 4px 10px;
+          font-size: 0.82rem;
+          border-radius: 11px;
+          gap: 4px;
+        }
+        .dropdown-arrow {
+          font-size: 0.45rem;
+        }
+        .dropdown-item {
+          padding: 7px 12px;
+          font-size: 0.85rem;
+        }
+        .value {
+          font-size: 1.7rem;
+        }
+        .unit {
+          font-size: 0.9rem;
+        }
+        .value-container {
+          gap: 4px;
+        }
+        .error, .loading {
+          font-size: 0.88rem;
+        }
+        .warning {
+          font-size: 0.8rem;
+          margin-top: 3px;
+        }
+      }
+
+      /* ── Responsive: Mittel-klein (180px–249px) ───────────────── */
+      @container card (min-width: 180px) and (max-width: 249px) {
+        ha-card {
+          padding: 10px 12px;
+        }
+        .header-row {
+          margin-bottom: 4px;
+        }
+        .card-header {
+          font-size: 1.05rem;
+        }
+        .dropdown-trigger {
+          padding: 5px 12px;
+          font-size: 0.95rem;
+          border-radius: 12px;
+        }
+        .dropdown-item {
+          padding: 8px 14px;
+          font-size: 0.95rem;
+        }
+        .value {
+          font-size: 2.1rem;
+        }
+        .unit {
+          font-size: 1.1rem;
+        }
+        .error, .loading {
+          font-size: 1rem;
+        }
+        .warning {
+          font-size: 0.92rem;
+        }
+      }
+
+      /* ── Responsive: Standard (250px–399px) — Default-Werte ──── */
+      /* Die Standard-Styles oben decken diesen Bereich ab. */
+
+      /* ── Responsive: Groß (400px–549px) ───────────────────────── */
+      @container card (min-width: 400px) and (max-width: 549px) {
+        ha-card {
+          padding: 16px 22px;
+        }
+        .header-row {
+          margin-bottom: 8px;
+        }
+        .card-header {
+          font-size: 1.5rem;
+        }
+        .dropdown-trigger {
+          padding: 7px 18px;
+          font-size: 1.2rem;
+          border-radius: 16px;
+        }
+        .dropdown-item {
+          padding: 11px 18px;
+          font-size: 1.15rem;
+        }
+        .value {
+          font-size: 3.3rem;
+        }
+        .unit {
+          font-size: 1.6rem;
+        }
+        .value-container {
+          gap: 7px;
+        }
+        .error, .loading {
+          font-size: 1.25rem;
+        }
+        .warning {
+          font-size: 1.15rem;
+        }
+      }
+
+      /* ── Responsive: Extra-groß (≥550px) ──────────────────────── */
+      @container card (min-width: 550px) {
+        ha-card {
+          padding: 20px 28px;
+        }
+        .header-row {
+          margin-bottom: 10px;
+        }
+        .card-header {
+          font-size: 1.7rem;
+        }
+        .dropdown-trigger {
+          padding: 8px 22px;
+          font-size: 1.35rem;
+          border-radius: 18px;
+        }
+        .dropdown-menu {
+          min-width: 180px;
+          border-radius: 14px;
+        }
+        .dropdown-item {
+          padding: 12px 20px;
+          font-size: 1.25rem;
+        }
+        .value {
+          font-size: 4rem;
+        }
+        .unit {
+          font-size: 1.85rem;
+        }
+        .value-container {
+          gap: 8px;
+        }
+        .error, .loading {
+          font-size: 1.35rem;
+        }
+        .warning {
+          font-size: 1.25rem;
+          margin-top: 6px;
+        }
       }
     `;
   }
@@ -500,7 +732,21 @@ class PeriodDifferenceCard extends LitElement {
     `;
   }
 
-  getCardSize() { return 1; }
+  getCardSize() {
+    return this._config?.grid_options?.rows || 2;
+  }
+
+  getLayoutOptions() {
+    const go = this._config?.grid_options || {};
+    return {
+      grid_columns: go.columns || 2,
+      grid_rows: go.rows || 2,
+      grid_min_columns: go.min_columns || 1,
+      grid_min_rows: go.min_rows || 1,
+      grid_max_columns: go.max_columns || 6,
+      grid_max_rows: go.max_rows || 4,
+    };
+  }
 
   static getStubConfig() {
     return {
@@ -525,7 +771,7 @@ window.customCards.push({
 });
 
 console.info(
-  '%c HA-PERIOD-DIFFERENCE-CARD %c v1.3.0 ',
+  '%c HA-PERIOD-DIFFERENCE-CARD %c v0.2.0 ',
   'background: #4caf50; color: #fff; font-weight: bold',
   'background: #ddd; color: #333'
 );
