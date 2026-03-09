@@ -87,7 +87,7 @@ class PeriodDifferenceCard extends LitElement {
         color: var(--primary-text-color);
         letter-spacing: -0.01em;
         min-width: 50px;
-        flex: 1 1 auto;
+        flex: 1 1 0;
         overflow: hidden;
         white-space: nowrap;
         position: relative;
